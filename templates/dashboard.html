@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache Log Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .chart-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 900px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Apache Log Dashboard</h1>
+
+    <div class="chart-container">
+        <h2>Top 10 IP Addresses</h2>
+        {{ ip_histogram|safe }}
+    </div>
+
+    <div class="chart-container">
+        <h2>Hourly Traffic</h2>
+        {{ hourly_histogram|safe }}
+    </div>
+
+    <div class="chart-container">
+        <h2>IPs Contributing 85% of Traffic</h2>
+        {{ top_ips_histogram|safe }}
+    </div>
+
+    <div class="chart-container">
+        <h2>Hours Contributing 70% of Traffic</h2>
+        {{ top_hours_histogram|safe }}
+    </div>
+</body>
+</html>
